@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Experimento7";
+}
+
+<div>
+    <h5>analiza el siguiente codigo, cuando comprendas presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+#include <'iostream>
+#include <'stdlib.h>
+using namespace std;
+
+
+#define MAX 50
+ 
+int leeCantidadElem()
+{
+    int n;
+    do{
+        cout<<"Cantidad de elementos a ingresar: ";cin>>n;
+            if(n<=0)
+                cout<<"...No seas payaso(a), ingresa una cantidad correcta: "<< endl; if(n>MAX)
+                cout<<"...La cantidad maxima permitida es "<< MAX<<" : "<< endl;
+    } while ( n < = 0 || n>MAX);
+    return n;
+}
+
+void OperaCadena(int cant,double A[])
+{
+    int i,j,k;
+    double resul;
+    cout<< endl;
+    do{
+    cout<<"Seleccione posicion A[i]: ";cin>>i;
+    }while(i>=cant||i< 0);
+    do{
+    cout <<"Seleccione posicion A[j]: ";cin>>j;
+    }while(j>=cant||j< 0);
+    do{
+    cout << "Seleccione posicion A[k]: ";cin>>k;
+    }while(k>=cant||k< 0);
+
+    resul=(A[i]+A[j])*A[k];
+    cout<<"[A["<< i <<"]+A["<< j <<"]]*A["<< k <<"] = "<< resul << endl;
+
+}
+
+void main()
+{
+    int c;
+    double n[MAX];
+    cout<<"La operacion que se realizara es: (A[i]+A[j])*A[k] "<< endl;
+    c=leeCantidadElem();
+    leeCadena(c,n);
+    OperaCadena(c,n);
+}
+
+//Libreria:"leearray.h"
+#include< iostream>
+using namespace std;
+void leeCadena(int cant,double n[])
+{
+    int i;
+    for(i=0;i< cant ; i++ )
+    {
+
+        cout << "Ingresa elementos A["<< i <<"] : ";
+        cin>>n[i];
+    }
+
+}
+
+void muestraCadena(int cant,double n[])
+{
+    int i;
+    for(i=0;i< cant; i++ )
+    {
+        cout << n[i] << endl;
+    }
+}
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico7')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="/Scripts/main.js"></script>
+    </div>
+</div>
+

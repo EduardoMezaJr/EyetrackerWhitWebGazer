@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Experimento5";
+}
+
+<div>
+    <h5>Lee el código que se presenta acontinuación, cuando logres comprenderlo completamente presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+class Primera{
+protected:
+	int i, j;
+public:
+	Primera(){i=j=0;}
+	Primera(int a, int b){i=a;j=b;}
+	void Entra_ij(int a, int b){i=a; j=b;}
+	void Muestra_ij (void) {cout<<"\n"<<'i<<" "<<'j;}
+};
+class Segunda : public Primera {
+	int k;
+public:
+	void Entra_k(int a){k=a;}
+	void Muestra_k(void){cout<<"\n"<<'k;}
+};
+class Tercera : public Segunda{
+public:
+	void f (void) {i=j=2;}
+};
+int main(){
+	Primera P(1,2);
+	Segunda S;
+	Tercera T;
+	S.Entra_ij(3,4);
+	S.Entra_k(5);
+	P.Muestra_ij();
+	S.Muestra_ij();
+	S.Muestra_k();
+	T.f();
+	T.Muestra_ij();
+	T.Entra_k(5);
+	T.Muestra_k();
+	S.Muestra_k();
+	T.Entra_ij(5,6);
+	T.Muestra_ij();
+	P.Muestra_ij();
+	system("PAUSE");
+	return 0;
+}
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico5')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="/Scripts/main.js"></script>
+    </div>
+</div>

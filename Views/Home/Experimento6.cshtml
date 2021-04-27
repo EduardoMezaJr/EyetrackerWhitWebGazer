@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Experimento6";
+}
+
+<div>
+    <h5>analiza el siguiente codigo, cuando comprendas presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+
+#include <math.h>
+#include <stdlib.h>
+#include <iostream>
+    using namespace std;
+
+
+    bool funcionBool(int n, string mensaje)//Función con dos parámetros
+    {
+    if(n == 0)//Usamos el parámetro en la función
+    {
+    cout << mensaje;//Mostramos el mensaje
+    return 1; //Si n es cero retorna 1
+    return true;//Equivalente
+    }
+    return 0;//Este return sólo se ejecuta cuando n NO es cero
+    return false;//Equivalente
+    }
+
+    void procedimiento(int n, string nombre)
+    {
+    if(n == 0)
+    {
+    cout << "hola" << nombre;
+    return;
+    }
+    cout << "adios" << nombre;
+    }
+
+    int main()
+    {
+    funcionEntera(); //Llamando a una función sin argumentos
+
+    bool respuesta = funcionBool(1, "hola"); //Asignando el valor retornado a una variable
+
+    procedimiento(0, "Juan");//Invocando el procedimiento
+
+    //Usando una función como parámetro
+    procedimiento(funcionBool(1, "hola"), "Juan");
+
+    return 0;
+    }
+
+</pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico6')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+    </div>
+</div>

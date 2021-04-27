@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Experimento6";
+}
+
+<div>
+    <h5>Lee el código que se presenta acontinuación, cuando logres comprenderlo completamente presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+
+#include <math.h>
+#include <stdlib.h>
+#include <iostream>
+using namespace std;
+
+// la siguiente funcion regresa el seno de la potencia de un numero x elevado a 2.1782 que es el valor de e (exponencial)
+float funcion(float x){
+	return sin(pow(2.71828, x));
+}
+
+// esta funcion recibe los valores a y b y los envia al metodo "funcion" para que sean procesados y retorna el valor de
+// la ecuacion del trapecio
+float trapecio(float a, float b){
+	return (b-a)*(funcion(a)+funcion(b))/2;
+}
+
+// en esta funcion se calcula la version extendida de la formula del trapecio
+float trapecio_extendida(float a, float b, int n){
+	float h=(b-a)/n;
+	float sumatoria=0;
+	for (int j=1;j<=n-1;j++){
+		sumatoria=sumatoria+funcion(a+j*h);
+	}
+	return (h/2)*(funcion(a)+2*sumatoria+funcion(b));
+}
+
+int main(){
+	// en el main mandamos a llamar las funciones declaradas anteriormente. estas funciones sirven para calcular el area
+	// debajo de una curva
+	cout<<"\nResultado trapecio: "<<'trapecio(0,(3.14416 /4))<<'endl;
+	cout<<"\nResultado trapecio extendida: "<<'trapecio_extendida(0,(3.1416/4),4)<<'endl;
+	system("PAUSE");
+	return 0;
+}
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico6')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+    </div>
+</div>

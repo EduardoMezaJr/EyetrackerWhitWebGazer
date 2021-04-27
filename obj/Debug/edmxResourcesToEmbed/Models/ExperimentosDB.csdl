@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Experiments_AppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cuestionario">
+    <Key>
+      <PropertyRef Name="id_cuestionario" />
+    </Key>
+    <Property Name="id_cuestionario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_participante" Type="Int32" Nullable="false" />
+    <Property Name="id_preguntas" Type="Int32" Nullable="false" />
+    <Property Name="p1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="pregunta" Relationship="Self.FK_cuestionario_participantes" FromRole="cuestionario" ToRole="preguntas" />
+    <NavigationProperty Name="participante" Relationship="Self.FK_cuestionario_participantes1" FromRole="cuestionario" ToRole="participantes" />
+  </EntityType>
+  <EntityType Name="participante">
+    <Key>
+      <PropertyRef Name="id_participante" />
+    </Key>
+    <Property Name="id_participante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="semestre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="nivel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cuestionario" Type="Int32" />
+    <Property Name="lentes" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="cuestionarios" Relationship="Self.FK_cuestionario_participantes1" FromRole="participantes" ToRole="cuestionario" />
+    <NavigationProperty Name="eyeDatas" Relationship="Experiments_AppModel.FK_eyeData_participantes" FromRole="participante" ToRole="eyeData" />
+    <NavigationProperty Name="respuestasExperimentos" Relationship="Experiments_AppModel.FK_respuestasExperimentos_respuestasExperimentos" FromRole="participante" ToRole="respuestasExperimento" />
+  </EntityType>
+  <EntityType Name="pregunta">
+    <Key>
+      <PropertyRef Name="id_preguntas" />
+    </Key>
+    <Property Name="id_preguntas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="participante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="p1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cuestionarios" Relationship="Self.FK_cuestionario_participantes" FromRole="preguntas" ToRole="cuestionario" />
+  </EntityType>
+  <Association Name="FK_cuestionario_participantes">
+    <End Role="preguntas" Type="Self.pregunta" Multiplicity="1" />
+    <End Role="cuestionario" Type="Self.cuestionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="preguntas">
+        <PropertyRef Name="id_preguntas" />
+      </Principal>
+      <Dependent Role="cuestionario">
+        <PropertyRef Name="id_preguntas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuestionario_participantes1">
+    <End Role="participantes" Type="Self.participante" Multiplicity="1" />
+    <End Role="cuestionario" Type="Self.cuestionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="participantes">
+        <PropertyRef Name="id_participante" />
+      </Principal>
+      <Dependent Role="cuestionario">
+        <PropertyRef Name="id_participante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Experiments_App_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cuestionarios" EntityType="Self.cuestionario" />
+    <EntitySet Name="participantes" EntityType="Self.participante" />
+    <EntitySet Name="preguntas" EntityType="Self.pregunta" />
+    <AssociationSet Name="FK_cuestionario_participantes" Association="Self.FK_cuestionario_participantes">
+      <End Role="preguntas" EntitySet="preguntas" />
+      <End Role="cuestionario" EntitySet="cuestionarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuestionario_participantes1" Association="Self.FK_cuestionario_participantes1">
+      <End Role="participantes" EntitySet="participantes" />
+      <End Role="cuestionario" EntitySet="cuestionarios" />
+    </AssociationSet>
+    <EntitySet Name="eyeDatas" EntityType="Experiments_AppModel.eyeData" />
+    <EntitySet Name="respuestasExperimentos" EntityType="Experiments_AppModel.respuestasExperimento" />
+    <AssociationSet Name="FK_eyeData_participantes" Association="Experiments_AppModel.FK_eyeData_participantes">
+      <End Role="participante" EntitySet="participantes" />
+      <End Role="eyeData" EntitySet="eyeDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestasExperimentos_respuestasExperimentos" Association="Experiments_AppModel.FK_respuestasExperimentos_respuestasExperimentos">
+      <End Role="participante" EntitySet="participantes" />
+      <End Role="respuestasExperimento" EntitySet="respuestasExperimentos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="eyeData">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_participante" Type="Int32" />
+    <Property Name="x" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="y" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="clock" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="experimento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="participante" Relationship="Experiments_AppModel.FK_eyeData_participantes" FromRole="eyeData" ToRole="participante" />
+  </EntityType>
+  <EntityType Name="respuestasExperimento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Participante" Type="Int32" />
+    <Property Name="nivelBasicoExp1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nivelBasicoExp2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nivelBasicoExp3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nivelIntermedioExp1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nivelIntermedioExp2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nivelIntermedioExp3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nivelAvanzadoExp1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nivelAvanzadoExp2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nivelAvanzadoExp3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="participante" Relationship="Experiments_AppModel.FK_respuestasExperimentos_respuestasExperimentos" FromRole="respuestasExperimento" ToRole="participante" />
+  </EntityType>
+  <Association Name="FK_eyeData_participantes">
+    <End Type="Experiments_AppModel.participante" Role="participante" Multiplicity="0..1" />
+    <End Type="Experiments_AppModel.eyeData" Role="eyeData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="participante">
+        <PropertyRef Name="id_participante" />
+      </Principal>
+      <Dependent Role="eyeData">
+        <PropertyRef Name="id_participante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestasExperimentos_respuestasExperimentos">
+    <End Type="Experiments_AppModel.participante" Role="participante" Multiplicity="0..1" />
+    <End Type="Experiments_AppModel.respuestasExperimento" Role="respuestasExperimento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="participante">
+        <PropertyRef Name="id_participante" />
+      </Principal>
+      <Dependent Role="respuestasExperimento">
+        <PropertyRef Name="id_Participante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

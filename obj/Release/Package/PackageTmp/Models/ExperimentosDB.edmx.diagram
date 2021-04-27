@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9e1ac69d883442ea8e0ea3fa28ff00fa" Name="Diagram1" ZoomLevel="96">
+        <EntityTypeShape EntityType="Experiments_AppModel.cuestionario" Width="1.5" PointX="3.625" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Experiments_AppModel.participante" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Experiments_AppModel.pregunta" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Experiments_AppModel.FK_cuestionario_participantes" ManuallyRouted="false" />
+        <AssociationConnector Association="Experiments_AppModel.FK_cuestionario_participantes1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Experiments_AppModel.eyeData" Width="1.5" PointX="5.5" PointY="5.75" />
+        <EntityTypeShape EntityType="Experiments_AppModel.respuestasExperimento" Width="1.5" PointX="3" PointY="7.25" />
+        <AssociationConnector Association="Experiments_AppModel.FK_eyeData_participantes" />
+        <AssociationConnector Association="Experiments_AppModel.FK_respuestasExperimentos_respuestasExperimentos" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

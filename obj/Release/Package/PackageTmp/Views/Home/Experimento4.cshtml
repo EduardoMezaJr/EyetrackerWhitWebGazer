@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Experimento4";
+}
+
+<div>
+    <h5>Lee el código que se presenta acontinuación, cuando logres comprenderlo completamente presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+#include 'iostream'
+
+using namespace std;
+void calcular(int altura, int base){
+	int area = base * altura;
+	cout<<"Mi area es: "<<'area<<'endl; }
+    void calcular(int altura, int base, int profundidad){
+    int volumen=base*altura*profundidad;
+    cout<<"Mi volumen es: "<<'volumen<<'endl;
+}
+int main(){
+	calcular(5,5);
+	calcular(5,5,5);
+	system("PAUSE");
+}
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico4')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+    </div>
+</div>
+

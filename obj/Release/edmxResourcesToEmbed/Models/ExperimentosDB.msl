@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Experiments_AppModelStoreContainer" CdmEntityContainer="Experiments_App_Entities">
+    <EntitySetMapping Name="cuestionarios">
+      <EntityTypeMapping TypeName="Experiments_AppModel.cuestionario">
+        <MappingFragment StoreEntitySet="cuestionario">
+          <ScalarProperty Name="id_cuestionario" ColumnName="id_cuestionario" />
+          <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+          <ScalarProperty Name="id_preguntas" ColumnName="id_preguntas" />
+          <ScalarProperty Name="p1" ColumnName="p1" />
+          <ScalarProperty Name="p2" ColumnName="p2" />
+          <ScalarProperty Name="p3" ColumnName="p3" />
+          <ScalarProperty Name="p4" ColumnName="p4" />
+          <ScalarProperty Name="p5" ColumnName="p5" />
+          <ScalarProperty Name="p6" ColumnName="p6" />
+          <ScalarProperty Name="p7" ColumnName="p7" />
+          <ScalarProperty Name="p8" ColumnName="p8" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="participantes">
+      <EntityTypeMapping TypeName="Experiments_AppModel.participante">
+        <MappingFragment StoreEntitySet="participantes">
+          <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="semestre" ColumnName="semestre" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="cuestionario" ColumnName="cuestionario" />
+          <ScalarProperty Name="lentes" ColumnName="lentes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="preguntas">
+      <EntityTypeMapping TypeName="Experiments_AppModel.pregunta">
+        <MappingFragment StoreEntitySet="preguntas">
+          <ScalarProperty Name="id_preguntas" ColumnName="id_preguntas" />
+          <ScalarProperty Name="participante" ColumnName="participante" />
+          <ScalarProperty Name="p1" ColumnName="p1" />
+          <ScalarProperty Name="p2" ColumnName="p2" />
+          <ScalarProperty Name="p3" ColumnName="p3" />
+          <ScalarProperty Name="p4" ColumnName="p4" />
+          <ScalarProperty Name="p5" ColumnName="p5" />
+          <ScalarProperty Name="p6" ColumnName="p6" />
+          <ScalarProperty Name="p7" ColumnName="p7" />
+          <ScalarProperty Name="p8" ColumnName="p8" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eyeDatas">
+      <EntityTypeMapping TypeName="Experiments_AppModel.eyeData">
+        <MappingFragment StoreEntitySet="eyeData">
+          <ScalarProperty Name="experimento" ColumnName="experimento" />
+          <ScalarProperty Name="clock" ColumnName="clock" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="x" ColumnName="x" />
+          <ScalarProperty Name="id_participante" ColumnName="id_participante" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="respuestasExperimentos">
+      <EntityTypeMapping TypeName="Experiments_AppModel.respuestasExperimento">
+        <MappingFragment StoreEntitySet="respuestasExperimentos">
+          <ScalarProperty Name="nivelAvanzadoExp3" ColumnName="nivelAvanzadoExp3" />
+          <ScalarProperty Name="nivelAvanzadoExp2" ColumnName="nivelAvanzadoExp2" />
+          <ScalarProperty Name="nivelAvanzadoExp1" ColumnName="nivelAvanzadoExp1" />
+          <ScalarProperty Name="nivelIntermedioExp3" ColumnName="nivelIntermedioExp3" />
+          <ScalarProperty Name="nivelIntermedioExp2" ColumnName="nivelIntermedioExp2" />
+          <ScalarProperty Name="nivelIntermedioExp1" ColumnName="nivelIntermedioExp1" />
+          <ScalarProperty Name="nivelBasicoExp3" ColumnName="nivelBasicoExp3" />
+          <ScalarProperty Name="nivelBasicoExp2" ColumnName="nivelBasicoExp2" />
+          <ScalarProperty Name="nivelBasicoExp1" ColumnName="nivelBasicoExp1" />
+          <ScalarProperty Name="id_Participante" ColumnName="id_Participante" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

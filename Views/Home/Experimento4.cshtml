@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Experimento4";
+}
+
+<div>
+    <h5>analiza el siguiente codigo, cuando comprendas presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+#include 'iostream'
+
+main ( )
+{
+int tabla[10], minimo (int *a, int n);
+cout << "Introduzca 10 enteros: \n";
+for (int i=0,i < 10,i++ ) cin >>tabla[i];
+cout<<"\n el valor minimo es"
+<< minimo (tabla,10)<< end;
+}
+int minimo (int *a, int n)
+{ int menor;
+menor=*a;
+for (int i=1;i< n;i++) if (*(a+1) < menor)
+menor=*(a+i);
+return menor;
+}
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico4')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+    </div>
+</div>
+

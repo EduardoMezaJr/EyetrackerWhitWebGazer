@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Profesor";
+}
+
+<div>
+    <h2>Encuesta para profesores</h2>
+    <form action="~/Home/CuestionarioProfesor" method="post">
+        <p>Edad</p>
+        <input type="text" name="edad" />
+        <hr />
+        <p>Sexo</p>
+        <select name="sexo">
+            <option value="0">
+                Seleccione su sexo
+            </option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="N/A">Prefiero no decir</option>
+        </select>
+        <hr />
+        <p>¿Qué materia(s) de programación está dando actualmente (separe por comas, ejemplo: Programación I, Programación II? </p>
+        <input type="text" name="p1" />
+        <hr />
+        <p>En promedio ¿qué porcentaje de sus clases pertenece a un enfoque teórico? (Ejemplo: 50%)</p>
+        <input type="text" name="p2" />
+        <hr />
+        <p>¿Qué porcentaje pertenece a un enfoque práctico? (Ejemplo: 50%) </p>
+        <input type="text" name="p3" />
+        <hr />
+        <p>Cuando aplica prácticas en clase, ¿normalmente las entregan en el momento, o se las llevan de tarea?  </p>
+        <input type="text" name="p4" />
+        <hr />
+        <p>¿qué tema de la carta descriptiva es con el que se retrasa mas la clase a causa de los alumnos que no lo comprenden?  </p>
+        <input type="text" name="p5" />
+        <hr />
+        <p>En promedio ¿cuánto tiempo a la semana pierde retomando temas ya vistos en clases anteriores?  </p>
+        <select name="p6">
+            <option value="0">
+                Seleccione el valor que mas se ajuste al tiempo perdido retomando temas antiguos.
+            </option>
+            <option value="0">0 horas</option>
+            <option value="10">10 a 15 minutos </option>
+            <option value="15">15 a 45 minutos </option>
+            <option value="45">45 minutos a 1 hora </option>
+            <option value="60">Mas de 1 hora </option>
+        </select>
+        <hr />
+        <p>¿cuáles son estos temas? </p>
+        <input type="text" name="p7" />
+        <hr />
+        <p>¿cuál cree usted que sea la causa mas común de distracción entre los alumnos de la clase de programación?  </p>
+        <input type="text" name="p8" />
+        <hr />
+        <button style="width: 100px;" type="submit">Enviar</button>
+    </form>
+</div>
+

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Experimentos";
+}
+
+<div style="width: 800px; align-self: center;">
+    <h5>analiza el siguiente codigo, cuando comprendas presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+#include 'stdio.h'
+#include 'stdlib.h'
+using namespace std;
+int main()
+{
+	int tabla, i, resultado;
+	printf("Introduzca un numero;");
+	scanf("%i", &i);
+	for(i=0; i< 10; i++){
+		for(numeros=0;numeros<=10;numeros++)
+		{
+			resultado=numeros*i;
+			printf("%i * %i = %i\n", i, numeros, resultado);
+		}
+	printf("\n\n");
+	}
+
+	system("PAUSE");
+	return 0;
+}
+
+    </pre>
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico1')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+    </div>
+</div>
+

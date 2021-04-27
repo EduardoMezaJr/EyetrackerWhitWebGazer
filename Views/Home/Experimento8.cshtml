@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Experimento8";
+}
+
+<div>
+    <h5>analiza el siguiente codigo, cuando comprendas presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+//Suma Z+ Con Recursividad
+#include'iostream''
+using namespace std;
+int leedato()
+{
+int i;
+cin>>i;
+return i;
+ 
+}
+ 
+int suma(int a, int b)
+{
+     
+    if(a>0 && b>0)
+        return 2+suma(a-1,b-1);
+    else
+    if(a>0 || b>0)
+        return 1+suma(a-1,b-1);
+    else
+        return 0;
+}
+ 
+ 
+void calcularSuma()
+{
+    int a,b,sumas;
+        do{
+        system("cls");
+        cout<<"Ingrese a: ";
+        a=leedato();
+        }while(a < 0); do{
+                     system("cls");
+                     cout<<"Ingrese b: ";
+        b=leedato();
+        }while(b < 0 );
+        sumas=suma(a,b);
+
+        cout<<"suma: "<< a <<" + "<< b <<" = "< < sumas << endl;
+
+}
+
+void main()
+{
+    calcularSuma();
+    cin.ignore();
+}
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico8')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="/Scripts/main.js"></script>
+    </div>
+</div>
+

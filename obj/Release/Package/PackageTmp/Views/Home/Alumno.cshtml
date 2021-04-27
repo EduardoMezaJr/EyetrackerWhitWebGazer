@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Alumno";
+}
+
+<div>
+    <h2>Encuesta para alumnos</h2>
+    <form action="~/Home/CuestionarioAlumno" method="post">
+        <p>Edad</p>
+        <input type="text" name="edad" />
+        <hr />
+        <p>Sexo</p>
+        <select name="sexo">
+            <option value="0">
+                Seleccione su sexo
+            </option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="N/A">Prefiero no decir</option>
+        </select>
+        <hr />
+        <p>Semestre</p>
+        <input type="text" name="semestre" />
+        <hr />
+        <p>¿Qué nivel de programación consideras que tienes?</p>
+        <select name="nivel">
+            <option value="0">
+                Selecciona el nivel de programación que consideras personalmente que tienes.
+            </option>
+            <option value="Basico">Básico</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Avanzado">Avanzado</option>
+        </select>
+        <hr />
+        <p>¿Utilizas lentes?</p>
+        <select name="Lentes">
+            <option value="0">
+                Lentes
+            </option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+        </select>
+        <hr />
+        <p>¿Cuánto tiempo llevas programando a nivel académico (preparatoria, universidad, cursos técnicos)? </p>
+        <select name="p1">
+            <option value="0">
+                Seleccione el valor correspondiente a su tiempo programando.
+            </option>
+            <option value="0"> < 1 año </option>
+            <option value="1">> 1 año < 3 años  </option>
+            <option value="3">> 3 años  </option>
+        </select>
+        <hr />
+        <p>¿Qué lenguajes de programación conoces (sabes utilizar)? (Separados por coma, ejemplo: C++, C#, Java</p>
+        <input type="text" name="p2" />
+        <hr />
+        <p>¿Qué nivel de programación consideras que tienes en el lenguaje C++?  </p>
+        <select name="p3">
+            <option value="0">
+                Selecciona el nivel de programación que consideras personalmente que tienes.
+            </option>
+            <option value="Basico">Básico</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Avanzado">Avanzado</option>
+        </select>
+        <hr />
+        <hr />
+        <p>¿Llevaste clases de programación previas a la universidad (bachillerato/cursos externos)?   </p>
+        <select name="p4">
+            <option value="0">
+                Seleccione si tuvo clases externas
+            </option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+        </select>
+        <hr />
+        <p>¿Has trabajado o trabajas actualmente con programación?   </p>
+        <select name="p5">
+            <option value="0">
+                Seleccione si trabaja en programación
+            </option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+        </select>
+        <hr />
+        <p>¿Qué tema de programación es el que más se te dificulta y por qué?    </p>
+        <input type="text" name="p6" />
+        <hr />
+        <p>¿Haces diagramas de flujo o seudocódigos antes de programar?  </p>
+        <select name="p7">
+            <option value="0">
+                Diagramas de flujo
+            </option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+        </select>
+        <hr />
+        <button style="width: 100px;" type="submit">Enviar</button>
+    </form>
+    
+    @*<button style="width: 100px;" onclick="Cancelar()">Cancelar</button>*@
+</div>
+
+

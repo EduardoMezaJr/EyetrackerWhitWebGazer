@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Experimento3";
+}
+
+<div>
+    <h5>analiza el siguiente codigo, cuando comprendas presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+#include 'iostream'
+#include 'stdlib.h'
+
+using namespace std;
+int main(int argc, char *argv[])
+{
+int a, b;
+char oper;
+cout << "Introduzca la operacion a realizar usando espacios:\n\n";
+cin >> a >> oper >> b;
+switch(oper)
+{
+case ’+’: cout << a << oper << b << " = " << a + b << endl;
+break;
+case ’-’: cout << a << oper << b << " = " << a - b << endl;
+break;
+case ’*’: cout << a << oper << b << " = " << a * b << endl;
+break;
+case ’/’: cout << a << oper << b << " = " << a / b << endl;
+break;
+case ’%’: cout << a << oper << b << " = " << a % b << endl;
+break;
+default: break;
+}
+return 0;
+}
+
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico3')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+    </div>
+</div>
+
+

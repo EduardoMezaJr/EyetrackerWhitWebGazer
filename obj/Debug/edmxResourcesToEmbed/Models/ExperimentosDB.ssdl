@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Experiments_AppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cuestionario">
+    <Key>
+      <PropertyRef Name="id_cuestionario" />
+    </Key>
+    <Property Name="id_cuestionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_participante" Type="int" Nullable="false" />
+    <Property Name="id_preguntas" Type="int" Nullable="false" />
+    <Property Name="p1" Type="varchar(max)" />
+    <Property Name="p2" Type="varchar(max)" />
+    <Property Name="p3" Type="varchar(max)" />
+    <Property Name="p4" Type="varchar(max)" />
+    <Property Name="p5" Type="varchar(max)" />
+    <Property Name="p6" Type="varchar(max)" />
+    <Property Name="p7" Type="varchar(max)" />
+    <Property Name="p8" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="eyeData">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_participante" Type="int" />
+    <Property Name="x" Type="varchar(max)" />
+    <Property Name="y" Type="varchar(max)" />
+    <Property Name="clock" Type="varchar(max)" />
+    <Property Name="experimento" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="participantes">
+    <Key>
+      <PropertyRef Name="id_participante" />
+    </Key>
+    <Property Name="id_participante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="edad" Type="int" />
+    <Property Name="sexo" Type="varchar" MaxLength="50" />
+    <Property Name="semestre" Type="varchar" MaxLength="50" />
+    <Property Name="nivel" Type="varchar" MaxLength="50" />
+    <Property Name="cuestionario" Type="int" />
+    <Property Name="lentes" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="preguntas">
+    <Key>
+      <PropertyRef Name="id_preguntas" />
+    </Key>
+    <Property Name="id_preguntas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="participante" Type="varchar" MaxLength="50" />
+    <Property Name="p1" Type="varchar(max)" />
+    <Property Name="p2" Type="varchar(max)" />
+    <Property Name="p3" Type="varchar(max)" />
+    <Property Name="p4" Type="varchar(max)" />
+    <Property Name="p5" Type="varchar(max)" />
+    <Property Name="p6" Type="varchar(max)" />
+    <Property Name="p7" Type="varchar(max)" />
+    <Property Name="p8" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="respuestasExperimentos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Participante" Type="int" />
+    <Property Name="nivelBasicoExp1" Type="varchar(max)" />
+    <Property Name="nivelBasicoExp2" Type="varchar(max)" />
+    <Property Name="nivelBasicoExp3" Type="varchar(max)" />
+    <Property Name="nivelIntermedioExp1" Type="varchar(max)" />
+    <Property Name="nivelIntermedioExp2" Type="varchar(max)" />
+    <Property Name="nivelIntermedioExp3" Type="varchar(max)" />
+    <Property Name="nivelAvanzadoExp1" Type="varchar(max)" />
+    <Property Name="nivelAvanzadoExp2" Type="varchar(max)" />
+    <Property Name="nivelAvanzadoExp3" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_cuestionario_participantes">
+    <End Role="preguntas" Type="Self.preguntas" Multiplicity="1" />
+    <End Role="cuestionario" Type="Self.cuestionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="preguntas">
+        <PropertyRef Name="id_preguntas" />
+      </Principal>
+      <Dependent Role="cuestionario">
+        <PropertyRef Name="id_preguntas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuestionario_participantes1">
+    <End Role="participantes" Type="Self.participantes" Multiplicity="1" />
+    <End Role="cuestionario" Type="Self.cuestionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="participantes">
+        <PropertyRef Name="id_participante" />
+      </Principal>
+      <Dependent Role="cuestionario">
+        <PropertyRef Name="id_participante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eyeData_participantes">
+    <End Role="participantes" Type="Self.participantes" Multiplicity="0..1" />
+    <End Role="eyeData" Type="Self.eyeData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="participantes">
+        <PropertyRef Name="id_participante" />
+      </Principal>
+      <Dependent Role="eyeData">
+        <PropertyRef Name="id_participante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_respuestasExperimentos_respuestasExperimentos">
+    <End Role="participantes" Type="Self.participantes" Multiplicity="0..1" />
+    <End Role="respuestasExperimentos" Type="Self.respuestasExperimentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="participantes">
+        <PropertyRef Name="id_participante" />
+      </Principal>
+      <Dependent Role="respuestasExperimentos">
+        <PropertyRef Name="id_Participante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Experiments_AppModelStoreContainer">
+    <EntitySet Name="cuestionario" EntityType="Self.cuestionario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eyeData" EntityType="Self.eyeData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="participantes" EntityType="Self.participantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="preguntas" EntityType="Self.preguntas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="respuestasExperimentos" EntityType="Self.respuestasExperimentos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_cuestionario_participantes" Association="Self.FK_cuestionario_participantes">
+      <End Role="preguntas" EntitySet="preguntas" />
+      <End Role="cuestionario" EntitySet="cuestionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuestionario_participantes1" Association="Self.FK_cuestionario_participantes1">
+      <End Role="participantes" EntitySet="participantes" />
+      <End Role="cuestionario" EntitySet="cuestionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eyeData_participantes" Association="Self.FK_eyeData_participantes">
+      <End Role="participantes" EntitySet="participantes" />
+      <End Role="eyeData" EntitySet="eyeData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_respuestasExperimentos_respuestasExperimentos" Association="Self.FK_respuestasExperimentos_respuestasExperimentos">
+      <End Role="participantes" EntitySet="participantes" />
+      <End Role="respuestasExperimentos" EntitySet="respuestasExperimentos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

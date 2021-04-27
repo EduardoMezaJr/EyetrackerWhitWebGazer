@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Experimento9";
+}
+
+<div>
+    <h5>analiza el siguiente codigo, cuando comprendas presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+
+using namespace std;
+int main()
+{
+    int contador = 0; //Iniciamos el contador en cero
+    for(int i = 0; i < 10000; i++)
+    {//Notemos que escribir i++ es similar a escribir i = i + 1
+        if(i%13 == 0) //Si el residuo es cero es múltiplo de 13
+        {
+            contador++; //Si es múltiplo aumentamos el contador en 1
+        }
+    }
+    //Mostramos el contador después de verificar todos los números
+    cout << contador << endl;
+    system("PAUSE");
+    return 0;
+}
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico9')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="/Scripts/main.js"></script>
+    </div>
+</div>
+
+

@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Experimento9";
+}
+
+<div>
+    <h5>Lee el código que se presenta acontinuación, cuando logres comprenderlo completamente presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+
+//evento del label1
+	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+			 }
+			 //evento del boton de salir
+	private: System::Void cmdSalir_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Close(); //funcion para cerrar el form
+			 }
+			 //evento del boton para elegir un numero al azar
+private: System::Void cmdAzar_Click(System::Object^  sender, System::EventArgs^  e) {
+			  Random r; //creamos un objeto random
+            int num = r.Next(29); //declaramos un numero que sera igual a un numero radom entre 1 y 29 (porque hay 29 letras en el abecedario
+            txtPosiciones->Text = num.ToString(); //imprimimos dicho numero en el texbox de posiciones convirtiendolo a string para poderlo visualizar
+		 }
+		 //evento del boton de limpiar
+private: System::Void cmdLimpiar_Click(System::Object^  sender, System::EventArgs^  e) {
+			 txtMensaje->Text=""; //limpiamos el txt de mensaje
+			 txtPosiciones->Text=""; //limpiamos el txt de posiciones
+			 txtRespuesta->Text=""; //limpiamos el txt de respuesta 
+		 }
+		 //evento del boton cifrar
+private: System::Void cmdCifrar_Click(System::Object^  sender, System::EventArgs^  e) {
+			String^ palabra; //declaramos una palabra del tipo string como objeto
+            String^ palabraCifrada; //declaramos la palabra cifrada tambien del tipo string como objeto
+            int desplazamiento; //declaramos el numero de desplazamientos a hacer
+			desplazamiento = Convert::ToInt16(txtPosiciones->Text); //le decimos que el numero de desplazamientos es el numero que se encuentra en el txtPosiciones
+			palabra = txtMensaje->Text; //le decimos que la palabra es la que se encuentra en el txtMensaje
+            palabraCifrada = Cifrar(palabra, desplazamiento); //le indicamos que la palabra cifrada se hara mandando llamar a la funcion Cifrar que se encuentra mas abajo enviandole como parametros la palabra y el numero de posiciones
+			txtRespuesta->Text = palabraCifrada; //le diremos que imprimira el mensaje cifrado en el txtRespuesta
+
+		 }
+		 //evento del boton descifrar
+private: System::Void cmdDescifrar_Click(System::Object^  sender, System::EventArgs^  e) {
+			 String^ palabra; //declaramos una palabra del tipo string como objeto
+            String^ palabraDescifrada; //declaramos la palabra desifrada
+            //int desplazamiento;
+			//desplazamiento = Convert::ToInt16(txtPosiciones->Text);
+			palabra = txtMensaje->Text; //le decimos que la palabra sera lo que se encuentre en el txtMensaje
+            palabraDescifrada = Descifrar(palabra); //mandamos llamar a la funcion de desifrado con el argumento de palabra 
+			txtRespuesta->Text = palabraDescifrada; //imprimimos la palabra descifrada
+		 }
+		 //funcion de cifrado
+		 String^ Cifrar(String^ pPalabra, int desplazamiento)
+        {
+            String^ _caracteres; //declaramos un string para los caracteres a cifrar
+			//con este arreglo iremos cifrando de uno por uno los caracteres del mensaje
+            for (int i = 0; i < pPalabra->Length; i++)
+            {
+                String^ letra = pPalabra->Substring(i, 1); //para esto iremos tomando cada caracter de la cadena en la posicion i y la guardaremos en la variable letra
+                int codigo = Convert::ToChar(letra); //tenemos la variable codigo que sera igual a la conversion de la letra en su respectivo codigo ascii
+                int Cifrado = codigo + desplazamiento; //al codigo le sumaremos el numero de desplazamientos indicado anteriormente
+				Char^ _caracterCifrado = Convert::ToChar(Cifrado); //tendremos la variable caracterCifrado que sera el resultado de convertir el codigo ya cifrado en su respectivo caracter ascii
+                _caracteres = _caracteres + _caracterCifrado; //sumamos el caracter cifrado a la cadena que vamos a regresar 
+            }
+			_caracteres = Convert::ToString(_caracteres); //convertimos la cadena a regresar en string
+            return _caracteres; //regresamos la cadena para imprimirla en el form 
+        }
+		//metodo para el descifrado de los mensajes
+        String^ Descifrar(String^ pPalabra)
+        {
+            String^ _caracteres; //declaramos la cadena de caracteres descifrados a enviar al form
+			//con este ciclo vamos a ir descifrando los caracteres dependiendo de su numero de transposicion para probar con todas las combinaciones posibles hasta romper el cifrado
+            for (int j = 0; j < 29; j++)
+            {
+				//con este ciclo vamos a descifrar los caracteres de uno por uno
+                for (int i = 0; i < pPalabra->Length; i++)
+                {
+                    String^ letra = pPalabra->Substring(i, 1); //declaramos una letra que sera el caracter de la palabra en su posicion i
+                    int codigo = Convert::ToChar(letra); //declaramos el codigo que sera el codigo ascii de la letra 
+                    int Cifrado = codigo - j; //al codigo le restamos la cantidad de transposiciones en j
+                    Char^ _caracterCifrado = Convert::ToChar(Cifrado); //convertimos el codigo descifrado en su respectivo caracter
+                    _caracteres = _caracteres + _caracterCifrado; //lo sumamos a la cadena a regresar
+                }
+                _caracteres = _caracteres + Environment::NewLine + Environment::NewLine; //hacemos un salto de linea
+            }
+			_caracteres = Convert::ToString(_caracteres); //convertimos los caracteres en string
+            return (_caracteres); //regresamos la cadena descifrada
+        }
+		//evento que maneja el txtRespuesta
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico9')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="/Scripts/main.js"></script>
+    </div>
+</div>
+
+

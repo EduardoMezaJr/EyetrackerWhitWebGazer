@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Experiments_App_Entities-Web.config Connection String" description="Experiments_App_Entities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.ExperimentosDB.csdl|res://*/Models.ExperimentosDB.ssdl|res://*/Models.ExperimentosDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-TQ4SEPV;initial catalog=Experiments_App;integrated security=False;User ID=allb410;Password=Ha1lS4t4n!;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\allB4\\source\\repos\\Experimentos\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Experiments_App_Entities']/@connectionString" />
+  </parameter>
+</parameters>

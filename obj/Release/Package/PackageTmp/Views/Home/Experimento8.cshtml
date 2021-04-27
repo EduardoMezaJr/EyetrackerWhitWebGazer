@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Experimento8";
+}
+
+<div>
+    <h5>Lee el código que se presenta acontinuación, cuando logres comprenderlo completamente presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+namespace cryptoTest
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            
+        }
+
+        private void btnClean_Click(object sender, RoutedEventArgs e)
+        {
+            txtKey.Text = "";
+            rtbPlainText.SelectAll();
+            rtbPlainText.Selection.Text = "";
+            rtbCrypto.SelectAll();
+            rtbCrypto.Selection.Text = "";
+        }
+
+        private void btnEncrypt_Click(object sender, RoutedEventArgs e)
+        {
+            Crypto crypto = new Crypto(txtKey.Text);
+
+            //button add new task on the add task grid 
+            TextRange textRange = new TextRange(
+                // TextPointer to the start of content in the RichTextBox.
+                rtbPlainText.Document.ContentStart,
+                // TextPointer to the end of content in the RichTextBox.
+                rtbPlainText.Document.ContentEnd
+            );
+
+            rtbCrypto.Document.Blocks.Add(new Paragraph(new Run(crypto.EncryptData(textRange.Text))));
+        }
+
+        private void btnDecrypt_Click(object sender, RoutedEventArgs e)
+        {
+            Crypto crypto = new Crypto(txtKey.Text);
+
+            //button add new task on the add task grid 
+            TextRange textRange = new TextRange(
+                // TextPointer to the start of content in the RichTextBox.
+                rtbPlainText.Document.ContentStart,
+                // TextPointer to the end of content in the RichTextBox.
+                rtbPlainText.Document.ContentEnd
+            );
+
+            rtbCrypto.Document.Blocks.Add(new Paragraph(new Run(crypto.DecryptData(textRange.Text))));
+        }
+    }
+}
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico8')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="/Scripts/main.js"></script>
+    </div>
+</div>
+

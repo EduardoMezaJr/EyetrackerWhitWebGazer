@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<div style="width: inherit; height: inherit">
+    <h1>Bienvenido</h1>
+    <h3>¿Es usted profesor o alumno?</h3>
+
+
+
+    <button style="width: 100px;" value="Profesor" onclick="Profesor()">Profesor</button>
+    <button style="width: 100px;" value="Alumno" onclick="Alumno()">Alumno</button>
+    <hr />
+    <p>@Html.ActionLink("Leer la declaración de privacidad", "Declaracion", "Home") </p>
+
+</div>

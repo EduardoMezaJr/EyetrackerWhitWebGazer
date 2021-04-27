@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "expBasico2";
+}
+
+<div>
+    <h5>Lee el código que se presenta acontinuación, cuando logres comprenderlo completamente presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+#include 'iostream'
+#include 'stdio.h'
+using namespace std;
+
+int main()
+{
+    int x, factorial, numero;
+    
+    cout<<"Ingrese un numero:/ ";
+    cin>>numero;
+    x = 1;
+    factorial = 1;
+    while(x <= numero)
+      {
+         factorial = factorial * x++;
+      }
+    cout<<"El factorial de :"<<'numero'<<" = "<<'factorial'<<'endl';
+
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico2')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+    </div>
+</div>
+

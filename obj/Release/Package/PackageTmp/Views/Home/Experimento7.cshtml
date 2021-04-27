@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewBag.Title = "Experimento7";
+}
+
+<div>
+    <h5>Lee el código que se presenta acontinuación, cuando logres comprenderlo completamente presiona el boton de terminar (espera a que aparezca el punto rojo para comenzar a leerlo).</h5>
+    <pre>
+#include <'iostream>
+#include <'stdlib.h>
+using namespace std;
+
+typedef struct nodo{ 
+	int dato;
+	nodo * siguiente;
+}queue;
+
+//typedef struct nodo *Q, * rimero, *final=NULL
+queue *Q, * primero, *final=NULL; //*Q va a ser el queue
+int cant=0;// contador para la cantidad de elementos
+
+void insertarNodo()//PUSH
+{
+	int valor;
+	cout<<"\nIntroduzca valor a almacenar: ";
+	cin>>valor;
+	Q = new nodo;
+	Q->dato=valor;
+	Q->siguiente=NULL;
+	
+	if(primero==NULL)
+	{
+		final=primero=Q;
+	}
+	else
+	{
+		final->siguiente = Q;
+		final = Q;
+	}
+	cant=cant+1;
+}
+
+void mostrar()
+{
+	Q=primero;
+	cout<<"\n\n+-----------------+\n"
+	<<"|   EL QUEUE ES:  |\n"
+	<<"+-----------------+\n";
+	while(Q!=NULL)
+	{
+		cout<<" - "<<'Q->dato;
+		Q=Q->siguiente;
+	}
+	cout<<"\n\n";
+}
+
+void pop()
+{
+	Q=primero;
+	if(Q==NULL)
+	{
+		cout<<"\nQueue vacio";
+		return;
+	}
+	else
+	{
+		primero = Q->siguiente;
+		Q=primero;
+	}
+	cant=cant-1;
+}
+
+void top()
+{
+int n;
+ cout<<"\n\tEl tope es: "<<'final->dato<<"\n"
+ <<"\t\tIngrese numero para cambiar el tope: ";
+ cin>>n;
+ final->dato=n;
+ cout<<"\n\tEl tope nuevo es: "<<'n<<"\n";
+}
+
+void base()
+{
+	int n;
+	cout<<"\n\tLa base es: "<<'primero->dato<<"\n"
+	<<"\t\tIngrese numero para cambiar la base: ";
+	cin>>n;
+	primero->dato=n;
+	cout<<"\n\tLa base nueva es: "<<'n<<"\n";
+}
+void cantElem()
+{
+	cout<<"\n\n+--------------------------------------+\n"
+	<<"|   CANTIDAD DE ELEMENTOS EN EL QUEUE  |\n"
+	<<"+--------------------------------------+\n\t\t    "
+	<<'cant<<"\n\n";
+}
+
+void browse()
+{
+	int pos,valor,cont;
+cont = 0;
+cout<< "Que posicion quieres modificar? "<<'endl;
+cin>>pos;
+Q = primero;
+if (Q == NULL){
+cout<< "No existen valores"<<'endl;
+return;
+}
+else{
+cout<<"Introduce tu valor"<<'endl;
+cin>>valor;
+for(cont = 0; cont < pos-1; cont++){
+Q = Q->siguiente;
+}
+Q -> posicion = valor;
+}
+
+}
+
+int main()
+{
+	int opc;
+	do{
+		cout<<"\n\n\t* * * QUEUE * * *\n"
+		<<"   ----------------------------\n"
+		<<"1. Insertar nodo\n"
+		<<"2. Mostrar QUEUE\n"
+		<<"3. Quitar nodo\n"
+		<<"4. Mostrar Tope | Modificar Tope\n"
+		<<"5. Mostrar Base | Modificar Base\n"
+		<<"6. Cantidad de elementos del QUEUE\n"
+		<<"7. Buscar elemento\n"
+		<<"0. Salir..\n"
+		<<"\n\t Elija opcion: ";
+		cin>>opc;
+		switch(opc)
+		{
+			case 1:
+				insertarNodo();
+				system("cls");
+			break;
+			case 2:
+				mostrar();
+				system("pause");
+				system("cls");
+			break;
+			case 3:
+				pop();
+				system("cls");
+			break;
+			case 4:
+				top();
+				system("pause");
+				system("cls");
+			break;
+			case 5:
+				base();
+				system("pause");
+				system("cls");
+			break;
+			case 6:
+				cantElem();
+				system("pause");
+				system("cls");
+			break;
+			case 7:
+			//	browse();
+			//system("cls");
+			//system("pause");
+			break;
+			default:
+				cout<<"\nOpcion no existe...";
+				break;
+		}
+
+	}while(opc!=0);
+	return 0;
+}
+
+    </pre>
+
+
+    <button style="width: 100px;" onclick="onbeforeunload('ExpBasico7')">Terminar</button>
+    <div>
+        <script type="text/javascript" src="/Scripts/main.js"></script>
+    </div>
+</div>
+
